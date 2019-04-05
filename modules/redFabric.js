@@ -71,7 +71,13 @@ class RedFabric {
     getTranstaction(txId) {
         var channel = this.client.getChannel();
         return channel.queryTransaction(txId).then(function (transaction){
-            return  transaction;
+            return  {
+                "channel":transactionEnvelope.payload.header.channel_header.channel_id,
+                "timestamp":transactionEnvelope.payload.header.channel_header.timestamp,
+                "creator":transactionEnvelope.payload.header.signature_header.creator,
+                "chaincode":transactionEnvelope.payload.data.actions[0].payload.action.proposal_response_payload.
+                chaincode_id.name
+            };
         });
     }
 
