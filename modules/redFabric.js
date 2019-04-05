@@ -93,6 +93,7 @@ class RedFabric {
     getOrgs() {
         var channel = this.client.getChannel();
         var orgs = channel.getOrganizations();
+        console.log(orgs);
         var organizations = [];
         for (let i = 0; i < orgs.length; i++) {
             const org = orgs[i];
