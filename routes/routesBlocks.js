@@ -48,5 +48,4 @@ module.exports = function (app, redFabric) {
         });
     });
 
-
 };

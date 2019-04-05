@@ -90,6 +90,13 @@ class RedFabric {
         });
     }
 
+    getOrgs() {
+        var channel = this.client.getChannel();
+        return channel.getOrganizations().then(function (orgs){
+            return  orgs;
+        });
+    }
+
 }
 
 module.exports = RedFabric;
