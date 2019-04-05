@@ -14,4 +14,16 @@ module.exports = function (app, redFabric) {
         });
     });
 
+    /**
+     * GET LastBlock
+     */
+    app.get("/lastblock", function (req, res) {
+        redFabric.getLastBlock().then(function (block) {
+            res.send(block);
+        }).catch(err => {
+            res.status(500).send("Vaya por dios: " + err);
+        });
+    });
+
+
 };

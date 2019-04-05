@@ -37,6 +37,16 @@ class RedFabric {
         });
     }
 
+    getLastBlock() {
+        var channel = this.client.getChannel();
+        var peer = this.client.getPeersForOrg()[0];
+        return channel.queryInfo(peer).then(function (blockchainInfo) {
+            return channel.queryBlockByHash(blockchainInfo.currentBlockHash).then(function (block) {
+                return block;
+            });
+        });
+    }
+
 }
 
 module.exports = RedFabric;
