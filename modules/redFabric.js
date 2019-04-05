@@ -72,10 +72,10 @@ class RedFabric {
         var channel = this.client.getChannel();
         return channel.queryTransaction(txId).then(function (transaction){
             return  {
-                "channel":transactionEnvelope.payload.header.channel_header.channel_id,
-                "timestamp":transactionEnvelope.payload.header.channel_header.timestamp,
-                "creator":transactionEnvelope.payload.header.signature_header.creator,
-                "chaincode":transactionEnvelope.payload.data.actions[0].payload.action.proposal_response_payload.
+                "channel":transaction.transactionEnvelope.payload.header.channel_header.channel_id,
+                "timestamp":transaction.transactionEnvelope.payload.header.channel_header.timestamp,
+                "creator":transaction.transactionEnvelope.payload.header.signature_header.creator,
+                "chaincode":transaction.transactionEnvelope.payload.data.actions[0].payload.action.proposal_response_payload.
                 chaincode_id.name
             };
         });
