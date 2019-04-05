@@ -23,7 +23,7 @@ module.exports = function (app, redFabric) {
                 "number":block.header.number,
                 "prevHash":block.header.previous_hash,
                 "dataHash":block.header.data_hash,
-                "channel":block.data.data[0].payload
+                "channel":block.data.data[0].payload.header.channel_header.channel_id
             }
             res.send(block);
         }).catch(err => {
