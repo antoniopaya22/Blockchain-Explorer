@@ -15,7 +15,7 @@ module.exports = function (app, redFabric) {
             });
         }
         res.send({
-            peers: peers
+            temp
         });
     });
 
