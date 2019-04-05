@@ -41,6 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //==========RUTAS================
 require("./routes/routesBlocks.js")(app, redFabric);
+require("./routes/routesTransactions.js")(app, redFabric);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

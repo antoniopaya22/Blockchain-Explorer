@@ -68,6 +68,13 @@ class RedFabric {
         });
     }
 
+    getTranstaction(txId) {
+        var channel = this.client.getChannel();
+        return channel.queryTransaction(txId).then(function (transaction){
+            return  transaction;
+        });
+    }
+
 }
 
 module.exports = RedFabric;
