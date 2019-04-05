@@ -8,7 +8,7 @@ module.exports = function (app, redFabric) {
         var temp = [];
         for (let i = 0; i < peers.length; i++) {
             const peer = peers[i];
-            console.log(peers);
+            console.log(peers.getMspid());
             temp.push({
                 "mspid": peer.getMspid(),
                 "name": peer.getName() 
