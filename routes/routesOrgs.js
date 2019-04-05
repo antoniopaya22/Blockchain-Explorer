@@ -1,22 +1,19 @@
 module.exports = function (app, redFabric) {
 
     /**
-     * GET Orgs
+     * GET Peers
      */
     app.get("/getpeers", function (req, res) {
-        var peers = redFabric.getPeers();
-        var temp = [];
-        for (let i = 0; i < peers.length; i++) {
-            const peer = peers[i];
-            console.log(peer.getMspid());
-            temp.push({
-                "mspid": peer.getMspid(),
-                "name": peer.getName() 
-            });
-        }
-        res.send({
-            temp
-        });
+        var nodos = redFabric.getPeers();
+        res.send({nodos});
+    });
+
+    /**
+     * GET Orgs
+     */
+    app.get("/getorgs", function (req, res) {
+        var orgs = redFabric.getOrgs();
+        res.send({orgs});
     });
 
 

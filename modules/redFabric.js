@@ -90,9 +90,32 @@ class RedFabric {
         });
     }
 
+    getOrgs() {
+        var channel = this.client.getChannel();
+        var orgs = channel.getOrganizations();
+        var organizations = [];
+        for (let i = 0; i < orgs.length; i++) {
+            const org = orgs[i];
+            organizations.push({
+                "mspid": org.getMspid(),
+                "name": org.getName() 
+            });
+        }
+        return organizations;
+    }
+
     getPeers() {
         var channel = this.client.getChannel();
-        return channel.getPeers();
+        var peers = channel.getPeers();
+        var nodos = [];
+        for (let i = 0; i < peers.length; i++) {
+            const peer = peers[i];
+            nodos.push({
+                "mspid": peer.getMspid(),
+                "name": peer.getName() 
+            });
+        }
+        return nodos;
     }
 
 }
