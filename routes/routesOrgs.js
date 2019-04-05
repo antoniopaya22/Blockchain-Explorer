@@ -5,10 +5,10 @@ module.exports = function (app, redFabric) {
      */
     app.get("/getpeers", function (req, res) {
         var peers = redFabric.getPeers();
-        console.log(peers);
         var temp = [];
         for (let i = 0; i < peers.length; i++) {
             const peer = peers[i];
+            console.log(peers);
             temp.push({
                 "mspid": peer.getMspid(),
                 "name": peer.getName() 
