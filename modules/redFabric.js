@@ -71,14 +71,7 @@ class RedFabric {
     getBlockGenesis(){ 
         var channel = this.client.getChannel();
         return channel.getGenesisBlock().then(function (block){
-            return  {
-                "number":block.header.number,
-                "prevHash":block.header.previous_hash,
-                "dataHash":block.header.data_hash,
-                "channel":block.data.data[0].payload.header.channel_header.channel_id,
-                "timestamp":block.data.data[0].payload.header.channel_header.timestamp,
-                "txid":block.data.data[0].payload.header.channel_header.tx_id
-            }
+            return  block;
         });
     }
 
