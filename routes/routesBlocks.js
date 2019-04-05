@@ -30,7 +30,7 @@ module.exports = function (app, redFabric) {
      * GET LastBlock
      */
     app.get("/get/:num", function (req, res) {
-        redFabric.getBlockByNum(req.params.num).then(function (block) {
+        redFabric.getBlockByNum(parseInt(req.params.num)).then(function (block) {
             res.send(block);
         }).catch(err => {
             res.status(500).send("Vaya por dios: " + err);
