@@ -70,7 +70,7 @@ class RedFabric {
 
     getBlockGenesis(){ 
         var channel = this.client.getChannel();
-        return channel.getBlockGenesis().then(function (block){
+        return channel.getGenesisBlock().then(function (block){
             return  {
                 "number":block.header.number,
                 "prevHash":block.header.previous_hash,
