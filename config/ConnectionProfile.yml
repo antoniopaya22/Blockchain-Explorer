@@ -1,0 +1,46 @@
+name: "asturias Client"
+version: "1.0"
+
+client:
+  organization: asturias
+  credentialStore:
+    path: "./keys"
+    cryptoStore:
+      path: "./keys"
+
+channels:
+  datoschannel:
+    orderers:
+      - orderer.arcelormittal.com
+    peers:
+      peer0.asturias.arcelormittal.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+      peer0.brasil.arcelormittal.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+      peer0.chicago.arcelormittal.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+
+organizations:
+  asturias:
+    mspid: asturiasMSP
+    peers:
+      - peer0.asturias.arcelormittal.com
+    certificateAuthorities:
+      - ca.asturias.arcelormittal.com
+
+peers:
+  peer0.asturias.arcelormittal.com:
+    url: grpc://localhost:7051
+
+orderers:
+  orderer.arcelormittal.com:
+    url: grpc://192.168.0.3:7050
