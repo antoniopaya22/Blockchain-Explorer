@@ -36,9 +36,25 @@ organizations:
       - peer0.asturias.arcelormittal.com
     certificateAuthorities:
       - ca.asturias.arcelormittal.com
+  brasil:
+    mspid: brasilMSP
+    peers:
+      - peer0.brasil.arcelormittal.com
+    certificateAuthorities:
+      - ca.brasil.arcelormittal.com
+  chicago:
+    mspid: chicagoMSP
+    peers:
+      - peer0.chicago.arcelormittal.com
+    certificateAuthorities:
+      - ca.chicago.arcelormittal.com
 
 peers:
   peer0.asturias.arcelormittal.com:
+    url: grpc://localhost:7051
+  peer0.brasil.arcelormittal.com:
+    url: grpc://localhost:7051
+  peer0.chicago.arcelormittal.com:
     url: grpc://localhost:7051
 
 orderers:
