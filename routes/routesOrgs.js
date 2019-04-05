@@ -9,7 +9,10 @@ module.exports = function (app, redFabric) {
         var temp = [];
         for (let i = 0; i < peers.length; i++) {
             const peer = peers[i];
-            
+            temp.push({
+                "mspid": peer._mspid,
+                "name": peer._name 
+            });
         }
         res.send({
             peers: peers
