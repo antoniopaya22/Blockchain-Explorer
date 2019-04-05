@@ -97,8 +97,7 @@ class RedFabric {
         for (let i = 0; i < orgs.length; i++) {
             const org = orgs[i];
             organizations.push({
-                "mspid": org.getMspid(),
-                "name": org.getName() 
+                "mspid": org.id
             });
         }
         return organizations;
