@@ -90,9 +90,9 @@ class RedFabric {
         });
     }
 
-    getOrgs() {
+    getPeers() {
         var channel = this.client.getChannel();
-        return channel.getOrganizations();
+        return channel.getPeers();
     }
 
 }
