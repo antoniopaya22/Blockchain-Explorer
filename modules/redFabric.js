@@ -42,8 +42,29 @@ class RedFabric {
         var peer = this.client.getPeersForOrg()[0];
         return channel.queryInfo(peer).then(function (blockchainInfo) {
             return channel.queryBlockByHash(blockchainInfo.currentBlockHash).then(function (block) {
-                return block;
+                return  {
+                    "number":block.header.number,
+                    "prevHash":block.header.previous_hash,
+                    "dataHash":block.header.data_hash,
+                    "channel":block.data.data[0].payload.header.channel_header.channel_id,
+                    "timestamp":block.data.data[0].payload.header.channel_header.timestamp,
+                    "txid":block.data.data[0].payload.header.channel_header.tx_id
+                }
             });
+        });
+    }
+
+    getBlockByNum(num){ 
+        var channel = this.client.getChannel();
+        return channel.queryBlock(num).then(function (block){
+            return  {
+                "number":block.header.number,
+                "prevHash":block.header.previous_hash,
+                "dataHash":block.header.data_hash,
+                "channel":block.data.data[0].payload.header.channel_header.channel_id,
+                "timestamp":block.data.data[0].payload.header.channel_header.timestamp,
+                "txid":block.data.data[0].payload.header.channel_header.tx_id
+            }
         });
     }
 
