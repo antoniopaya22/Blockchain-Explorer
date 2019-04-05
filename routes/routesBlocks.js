@@ -37,5 +37,16 @@ module.exports = function (app, redFabric) {
         });
     });
 
+    /**
+     * GET GenesisBlock
+     */
+    app.get("/getGenesis", function (req, res) {
+        redFabric.getBlockGenesis().then(function (block) {
+            res.send(block);
+        }).catch(err => {
+            res.status(500).send("Vaya por dios: " + err);
+        });
+    });
+
 
 };
