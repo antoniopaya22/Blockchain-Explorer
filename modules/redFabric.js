@@ -76,7 +76,7 @@ class RedFabric {
                 "timestamp":transaction.transactionEnvelope.payload.header.channel_header.timestamp,
                 "creator":transaction.transactionEnvelope.payload.header.signature_header.creator,
                 "chaincode":transaction.transactionEnvelope.payload.data.actions[0].payload.action.proposal_response_payload.
-                chaincode_id.name
+                extension.chaincode_id.name
             };
         });
     }
