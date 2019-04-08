@@ -117,7 +117,9 @@ class RedFabric {
         var i = start;
         while(i > start-5){
             promises.push(new Promise((resolve, reject) => {
-                this.getBlockByNum(i)
+                this.getBlockByNum(i).then(block => {
+                    resolve(block);
+                });
             }));
             i--;
         }
