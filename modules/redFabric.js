@@ -111,6 +111,16 @@ class RedFabric {
         return nodos;
     }
 
+    getAllBlocks() {
+        var blocks = [];
+        return getNumBlocks().then(function (num) {
+           for (i = 0; i<num ; i++){
+               blocks.push(getBlockByNum(i).then(function (b) {return b}));
+           }
+           return blocks;
+        });
+    }
+
 }
 
 module.exports = RedFabric;
