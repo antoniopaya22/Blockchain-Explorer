@@ -18,8 +18,8 @@ module.exports = function (app, redFabric, swig) {
                     }
                     if(!exist) charTimes.push({time:formattedTime,count:1});
                 });
-                times = [];
-                counts = [];
+                times = ["29/2/119"];
+                counts = [1];
                 charTimes.forEach(x => times.push(x.time));
                 charTimes.forEach(x => counts.push(x.count));
                 res.send(swig.renderFile('views/home.html', {
