@@ -116,14 +116,14 @@ class RedFabric {
         var promises = [];
         var fabric = this;
         return this.getNumBlocks().then(start => {
-            var i = start;
-            while(i > start-5){
+            var i = 0;
+            while(i < start){
                 promises.push(new Promise((resolve, reject) => {
                     fabric.getBlockByNum(i).then(block => {
                         resolve(block);
                     });
                 }));
-                i--;
+                i++;
             }
             console.log(promises.length);
             return Promise.all(promises).then(values => { 
