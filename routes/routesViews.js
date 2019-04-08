@@ -24,7 +24,7 @@ module.exports = function (app, redFabric, swig) {
                     peers: redFabric.getPeers(),
                     blocks: blocks,
                     times: charTimes.filter(x => x.time),
-                    counts: charTimes.filter(x => x.count)
+                    counts: charTimes.filter(x => parseInt(x.count))
                 }));
             }).catch(err => {
                 res.status(500).send("Vaya por dios: " + err);
