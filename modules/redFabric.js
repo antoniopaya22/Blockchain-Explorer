@@ -113,9 +113,9 @@ class RedFabric {
 
     getAllBlocks() {
         var blocks = [];
-        return getNumBlocks().then(function (num) {
+        return this.getNumBlocks().then(function (num) {
            for (i = 0; i<num ; i++){
-               blocks.push(getBlockByNum(i).then(function (b) {return b}));
+               blocks.push(this.getBlockByNum(i).then(function (b) {return b}));
            }
            return blocks;
         });
