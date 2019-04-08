@@ -12013,3 +12013,7 @@ body.sidebar-toggled footer.sticky-footer {
           right: auto;
       }
 }
+
+.hash{
+  font-size: 6px;
+}
