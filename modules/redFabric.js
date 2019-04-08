@@ -115,10 +115,16 @@ class RedFabric {
         var blocks = [];
         var fabric = this;
         return this.getNumBlocks().then(function (num) {
-           for (var i = 0; i<num ; i++){
-               blocks.push(fabric.getBlockByNum(i).then(function (b) {return b}));
-           }
-           return blocks;
+            var promises = [];
+            for (var i = 0; i<num ; i++){
+                promises.push(new Promise(fabric.getBlockByNum(i)));
+            }
+            return Promise.all(promises).then(values =>{
+                for (value in values){
+                    blocks.push(value);
+                }
+                return blocks;
+            });
         });
     }
 
