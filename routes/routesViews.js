@@ -5,9 +5,9 @@ module.exports = function (app, redFabric, swig) {
             redFabric.getLastBlock().then(function (lastBlock) {
                 res.send(swig.renderFile('views/home.html', {
                     title: 'ArcelorMittal Blockchain Dashboard',
-                    numBlocks: numBlocks,
+                    numBlocks: numBlocks.toString(),
                     peers: redFabric.getPeers(),
-                    lastBlock: lastBlock
+                    lastBlock: lastBlock.toString()
                 }));
             }).catch(err => {
                 res.status(500).send("Vaya por dios: " + err);
