@@ -104,6 +104,23 @@
               </div>
           </div>
         </div>
+        <div class="row">
+          <!-- Chart -->
+          <div class="col-lg-12">
+              <div class="card shadow mb-4">
+                  <!-- Card Header - Dropdown -->
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Transacciones por organizacion</h6>
+                  </div>
+                  <!-- Card Body -->
+                  <div class="card-body">
+                      <div class="chart-pie pt-4">
+                          <canvas id="myPieChart2"></canvas>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
     </div>
     <!-- /.container-fluid -->
 {% endblock %}
@@ -167,6 +184,42 @@
                 }]
               }     
             }
+        });
+
+        // Pie Chart Example
+        var ctx = document.getElementById("myPieChart2");
+        var myPieChart2 = new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                  labels: ["Asturias", "Brasil", "Chicago"],
+                  datasets: [{
+                  data: [{{asturias.length}}, {{brasil.length}}, {{chicago.length}}],
+                  backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+                  hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+                  hoverBorderColor: "rgba(234, 236, 244, 1)",
+                  }],
+              },
+              options: {
+                  maintainAspectRatio: false,
+                  tooltips: {
+                  backgroundColor: "rgb(255,255,255)",
+                  bodyFontColor: "#858796",
+                  borderColor: '#dddfeb',
+                  borderWidth: 1,
+                  xPadding: 15,
+                  yPadding: 15,
+                  displayColors: false,
+                  caretPadding: 10,
+                  },
+
+                  legend: {
+                    display: true,
+                    labels: {
+                        fontColor: 'rgb(255, 99, 132)'
+                    }
+                  },
+                  cutoutPercentage: 80,
+              },
         });
 </script>
 

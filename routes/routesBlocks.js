@@ -42,4 +42,12 @@ module.exports = function (app, redFabric) {
         });
     });
 
+    app.get("/allInfoBlock/:num", function (req, res) {
+        redFabric.getAllInfoBlock(req.params.num).then(function (blocks) {
+            res.send(blocks);
+        }).catch(err => {
+            res.status(500).send("Vaya por dios: " + err);
+        });
+    });
+
 };
