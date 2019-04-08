@@ -16,21 +16,44 @@
                 </div>
                 <ul class="timeline" id="tableBody">
                     {% for block in blocks %}
-                     <li>
-                        <div class="timeline-badge info"><i class="glyphicon glyphicon-floppy-disk"></i></div>
+                    {% if block.number%2 == 0 %}
+                    <li>
+                        <div class="timeline-badge info"><i class="fas fa-cubes"></i></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4 class="timeline-title">{{block.number}}</h4>
                             </div>
                             <div class="timeline-body">
-                                <p>Hello world</p>
+                                <p><strong>Hash actual:</stong>{{block.dataHash}}</p>
+                                <p><strong>Hash anterior:</stong>{{block.prevHash}}</p>
+                                <p><strong>Channel:</stong>{{block.channel}}</p>
                                 <hr>
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-primary"><a href="#">Ver todo el contenido del bloque</a></button>
+                                    <button type="button" class="btn btn-primary">Ver todo el contenido del bloque</button>
                                 </div>
                             </div>
                         </div>
                     </li>
+                    {% endif %}
+                    {% if block.number%2 != 0 %}
+                    <li>
+                        <div class="timeline-inverted info"><i class="fas fa-cubes"></i></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="timeline-title">{{block.number}}</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p><strong>Hash actual:</stong>{{block.dataHash}}</p>
+                                <p><strong>Hash anterior:</stong>{{block.prevHash}}</p>
+                                <p><strong>Channel:</stong>{{block.channel}}</p>
+                                <hr>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary">Ver todo el contenido del bloque</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {% endif %}
                     {% endfor %}
                 </ul>
             </div>
