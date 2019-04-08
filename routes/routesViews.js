@@ -19,7 +19,7 @@ module.exports = function (app, redFabric, swig) {
                 });
                 times = [];
                 counts = [];
-                charTimes.forEach(x => times.push(x.time.toString()));
+                charTimes.forEach(x => times.push(x.time.toString().split("-")[2]));
                 charTimes.forEach(x => counts.push(parseInt(x.count)));
                 res.send(swig.renderFile('views/home.html', {
                     title: 'ArcelorMittal Blockchain Dashboard',
