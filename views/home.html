@@ -131,7 +131,11 @@
         var ctx = document.getElementById("myPieChart");
         var myPieChart = new Chart(ctx, {
             type: 'line',
-            data: {{times}},
+            data: {
+                datasets: [{
+                  data: [{{times}}]
+                }],
+            },
             options: {
               maintainAspectRatio: false,
               tooltips: {
