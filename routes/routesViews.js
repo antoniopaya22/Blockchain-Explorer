@@ -3,6 +3,7 @@ module.exports = function (app, redFabric, swig) {
     app.get("/", function (req, res) {
         redFabric.getNumBlocks().then(function (numBlocks) {
             redFabric.getLastBlock().then(function (lastBlock) {
+                console.log(numBlocks);
                 swig.renderFile('views/home.html', {
                     title: 'ArcelorMittal Blockchain Dashboard',
                     numBlocks: numBlocks,
