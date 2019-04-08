@@ -48,7 +48,8 @@ class RedFabric {
                     "dataHash":block.header.data_hash,
                     "channel":block.data.data[0].payload.header.channel_header.channel_id,
                     "timestamp":block.data.data[0].payload.header.channel_header.timestamp,
-                    "txid":block.data.data[0].payload.header.channel_header.tx_id
+                    "txid":block.data.data[0].payload.header.channel_header.tx_id,
+                    "org":block.data.data[0].payload.header.signature_header.creator.Mspid
                 }
             });
         });
@@ -63,7 +64,8 @@ class RedFabric {
                 "dataHash":block.header.data_hash,
                 "channel":block.data.data[0].payload.header.channel_header.channel_id,
                 "timestamp":block.data.data[0].payload.header.channel_header.timestamp,
-                "txid":block.data.data[0].payload.header.channel_header.tx_id
+                "txid":block.data.data[0].payload.header.channel_header.tx_id,
+                "org":block.data.data[0].payload.header.signature_header.creator.Mspid
             }
         });
     }

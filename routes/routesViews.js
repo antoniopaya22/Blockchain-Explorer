@@ -27,7 +27,10 @@ module.exports = function (app, redFabric, swig) {
                     peers: redFabric.getPeers(),
                     blocks: blocks,
                     times: times,
-                    counts: counts
+                    counts: counts,
+                    asturias: blocks.filter(x => x.org === "asturiasMSP"),
+                    brasil: blocks.filter(x => x.org === "brasilMSP"),
+                    chicago: blocks.filter(x => x.org === "chicagoMSP")
                 }));
             }).catch(err => {
                 res.status(500).send("Vaya por dios: " + err);
