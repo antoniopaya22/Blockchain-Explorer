@@ -16,6 +16,7 @@
                 </div>
                 <ul class="timeline" id="tableBody">
                     {% for block in blocks %}
+                    {% if block.number%2 == 0 %}
                     <li>
                         <div class="timeline-badge info"><i class="fas fa-cubes"></i></div>
                         <div class="timeline-panel">
@@ -33,6 +34,26 @@
                             </div>
                         </div>
                     </li>
+                    {% endif %}
+                    {% if block.number%2 != 0 %}
+                    <li>
+                        <div class="timeline-inverted info"><i class="fas fa-cubes"></i></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="timeline-title">{{block.number}}</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <b>Hash actual:</b><p class="hash">{{block.dataHash}}</p>
+                                <b>Hash anterior:</b><p class="hash">{{block.prevHash}}</p>
+                                <b>Channel:</b><p class="hash">{{block.channel}}</p>
+                                <hr>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary">Ver todo el contenido del bloque</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {% endif %}
                     {% endfor %}
                 </ul>
             </div>
