@@ -15,11 +15,12 @@
                     <h1 id="timeline">Todas los bloques</h1>
                 </div>
                 <ul class="timeline" id="tableBody">
+                    {% for block in blocks %}
                      <li>
                         <div class="timeline-badge info"><i class="glyphicon glyphicon-floppy-disk"></i></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4 class="timeline-title"># 1</h4>
+                                <h4 class="timeline-title">{{block.number}}</h4>
                             </div>
                             <div class="timeline-body">
                                 <p>Hello world</p>
@@ -30,6 +31,7 @@
                             </div>
                         </div>
                     </li>
+                    {% endfor %}
                 </ul>
             </div>
             
