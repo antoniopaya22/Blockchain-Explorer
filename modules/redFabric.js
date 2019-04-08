@@ -111,6 +111,33 @@ class RedFabric {
         return nodos;
     }
 
+    getAllBlocks() {
+        var blocks = [];
+        var promises = [];
+        var fabric = this;
+        return this.getNumBlocks().then(start => {
+            var i = start;
+            while(i > start-5){
+                promises.push(new Promise((resolve, reject) => {
+                    fabric.getBlockByNum(i).then(block => {
+                        resolve(block);
+                    });
+                }));
+                i--;
+            }
+            console.log(promises.length);
+            return Promise.all(promises).then(values => { 
+                console.log(values);
+                for(var j = 0; j < values.length; j++){
+                    blocks.push(values[j]);
+                }
+                return blocks;
+            }).catch(reason => { 
+                console.log(reason)
+            });
+        })
+    }
+
     getBlocksBt(start) {
         var blocks = [];
         var promises = [];
