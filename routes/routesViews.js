@@ -1,6 +1,6 @@
 module.exports = function (app, redFabric, swig) {
 
-    app.get("/", function (req, res) {
+    app.get("/home", function (req, res) {
         redFabric.getNumBlocks().then(function (numBlocks) {
             redFabric.getAllBlocks().then(function (blocks) {
                 var times = blocks.map(x => x.timestamp);
