@@ -150,9 +150,7 @@ class RedFabric {
             }));
             i--;
         }
-        console.log(promises.length);
         return Promise.all(promises).then(values => { 
-            console.log(values);
             for(var j = 0; j < values.length; j++){
                 blocks.push(values[j]);
             }
