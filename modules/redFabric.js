@@ -116,7 +116,7 @@ class RedFabric {
         var fabric = this;
         return this.getNumBlocks().then(function (num) {
             var promises = [];
-            for (var i = 0; i<num ; i++){
+            for (var i = 0; i<4 ; i++){
                 promises.push(new Promise(() => {return fabric.getBlockByNum(i)}));
             }
             return Promise.all(promises).then(values =>{
