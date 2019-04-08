@@ -35,7 +35,7 @@ module.exports = function (app, redFabric) {
     });
 
     app.get("/allBlocks", function (req, res) {
-        redFabric.getAllBlocks().then(function (blocks) {
+        redFabric.getBlocksBt(8).then(function (blocks) {
             res.send(blocks);
         }).catch(err => {
             res.status(500).send("Vaya por dios: " + err);
