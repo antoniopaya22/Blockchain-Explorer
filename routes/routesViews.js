@@ -39,4 +39,20 @@ module.exports = function (app, redFabric, swig) {
             res.status(500).send("Vaya por dios: " + err);
         });
     });
+
+    app.get("/bloques", function (req, res) {
+        redFabric.getNumBlocks().then(function (numBlocks) {
+            redFabric.getAllBlocks().then(function (blocks) {
+                res.send(swig.renderFile('views/bloques.html', {
+                    numBlocks: numBlocks.toString(),
+                    peers: redFabric.getPeers(),
+                    blocks: blocks
+                }));
+            }).catch(err => {
+                res.status(500).send("Vaya por dios: " + err);
+            });
+        }).catch(err => {
+            res.status(500).send("Vaya por dios: " + err);
+        });
+    });
 };
