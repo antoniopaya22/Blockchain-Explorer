@@ -132,7 +132,7 @@
         var myPieChart = new Chart(ctx, {
             type: 'line',
             data: {
-              labels: [{{times}}],
+              labels: [{{times.toString()}}],
               datasets: [{ 
                   data: [{{counts}}],
                   label: "Bloques",
