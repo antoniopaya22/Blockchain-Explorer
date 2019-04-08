@@ -7,7 +7,7 @@ module.exports = function (app, redFabric, swig) {
                 var charTimes = [];
                 times.forEach(t => {
                     var date = new Date(t.toString());
-                    var formattedTime = date.getDay() + '/' + date.getMonth() + '/' + date.getYear();
+                    var formattedTime = date.getDay() + '/' + date.getMonth();
                     var exist = false;
                     for (let i = 0; i < charTimes.length; i++) {
                         const e = charTimes[i];
@@ -18,7 +18,7 @@ module.exports = function (app, redFabric, swig) {
                     }
                     if(!exist) charTimes.push({time:formattedTime,count:1});
                 });
-                times = ["29/2/119"];
+                times = ["29/2"];
                 counts = [1];
                 charTimes.forEach(x => times.push(x.time));
                 charTimes.forEach(x => counts.push(x.count));
