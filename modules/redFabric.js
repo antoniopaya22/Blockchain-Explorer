@@ -117,7 +117,7 @@ class RedFabric {
         var fabric = this;
         return this.getNumBlocks().then(start => {
             var i = 0;
-            while(i <= start){
+            while(i < start){
                 promises.push(new Promise((resolve, reject) => {
                     fabric.getBlockByNum(i).then(block => {
                         resolve(block);
