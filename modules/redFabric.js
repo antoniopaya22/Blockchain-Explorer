@@ -128,6 +128,8 @@ class RedFabric {
                 blocks.push(values[j]);
             }
             return blocks;
+        }).catch(reason => { 
+            console.log(reason)
         });
     }
 
