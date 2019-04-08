@@ -18,13 +18,13 @@ module.exports = function (app, redFabric, swig) {
                     }
                     if(!exist) charTimes.push({time:formattedTime,count:1});
                 });
-                console.log(charTimes);
                 res.send(swig.renderFile('views/home.html', {
                     title: 'ArcelorMittal Blockchain Dashboard',
                     numBlocks: numBlocks.toString(),
                     peers: redFabric.getPeers(),
                     blocks: blocks,
-                    times: charTimes
+                    times: charTimes.filter(x => x.time),
+                    counts: charTimes.filter(x => x.count)
                 }));
             }).catch(err => {
                 res.status(500).send("Vaya por dios: " + err);
