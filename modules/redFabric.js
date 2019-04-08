@@ -68,6 +68,13 @@ class RedFabric {
         });
     }
 
+    getAllInfoBlock(num){
+        var channel = this.client.getChannel();
+        return channel.queryBlock(num).then(function (block){
+            return  block;
+        });
+    }
+
     getBlockGenesis(){ 
         var channel = this.client.getChannel();
         return channel.getGenesisBlock().then(function (block){
@@ -88,20 +95,6 @@ class RedFabric {
                 extension.results.ns_rwset[1].rwset.writes
             };
         });
-    }
-
-    getOrgs() {
-        var channel = this.client.getChannel();
-        var orgs = channel.getOrganizations();
-        console.log(orgs);
-        var organizations = [];
-        for (let i = 0; i < orgs.length; i++) {
-            const org = orgs[i];
-            organizations.push({
-                "mspid": org.id
-            });
-        }
-        return organizations;
     }
 
     getPeers() {

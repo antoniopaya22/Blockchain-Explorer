@@ -8,13 +8,5 @@ module.exports = function (app, redFabric) {
         res.send({nodos});
     });
 
-    /**
-     * GET Orgs
-     */
-    app.get("/getorgs", function (req, res) {
-        var orgs = redFabric.getOrgs();
-        res.send({orgs});
-    });
-
 
 };

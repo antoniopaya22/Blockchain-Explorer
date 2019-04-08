@@ -16,6 +16,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var app = express();
 const RedFabric = require("./modules/redFabric");
+var swig = require('swig');
 
 
 //==========VARIABLES===============
@@ -40,6 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //==========RUTAS================
+require("./routes/routesViews.js")(app, redFabric, swig);
 require("./routes/routesBlocks.js")(app, redFabric);
 require("./routes/routesTransactions.js")(app, redFabric);
 require("./routes/routesOrgs.js")(app, redFabric);
