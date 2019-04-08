@@ -5,7 +5,7 @@ module.exports = function (app, redFabric, swig) {
             redFabric.getAllBlocks().then(function (blocks) {
                 var times = blocks.map(x => x.timestamp);
                 var charTimes = [];
-                times.array.forEach(t => {
+                times.forEach(t => {
                     var date = Date.parse(t);
                     var formattedTime = date.getDay() + '/' + date.getMonth() + '/' + date.getYear();
                     var exist = false;
