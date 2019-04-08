@@ -6,9 +6,7 @@ module.exports = function (app, redFabric, swig) {
                 var times = blocks.map(x => x.timestamp);
                 var charTimes = [];
                 times.forEach(t => {
-                    console.log(t);
                     var date = new Date(t.toString());
-                    console.log(date);
                     var formattedTime = date.getDay() + '/' + date.getMonth() + '/' + date.getYear();
                     var exist = false;
                     for (let i = 0; i < charTimes.length; i++) {
@@ -20,6 +18,7 @@ module.exports = function (app, redFabric, swig) {
                     }
                     if(!exist) charTimes.push({time:formattedTime,count:1});
                 });
+                console.log(charTimes);
                 res.send(swig.renderFile('views/home.html', {
                     title: 'ArcelorMittal Blockchain Dashboard',
                     numBlocks: numBlocks.toString(),
