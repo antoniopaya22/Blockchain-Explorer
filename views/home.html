@@ -87,9 +87,23 @@
                   </div>
                 </div>
         </div>
-        
-        
-
+        <div class="row">
+          <!-- Chart -->
+          <div class="col-lg-12">
+              <div class="card shadow mb-4">
+                  <!-- Card Header - Dropdown -->
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Transacciones</h6>
+                  </div>
+                  <!-- Card Body -->
+                  <div class="card-body">
+                      <div class="chart-pie pt-4">
+                          <canvas id="myPieChart"></canvas>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
     </div>
     <!-- /.container-fluid -->
 {% endblock %}
@@ -106,6 +120,21 @@
 <script src="js/sb-admin-2.min.js"></script>
 <!-- Page level plugins -->
 <script src="vendor/chart.js/Chart.min.js"></script>
+<script src="vendor/chart.js/Chart.min.js"></script>
+
+ <script>
+        // Set new default font family and font color to mimic Bootstrap's default styling
+        Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+        Chart.defaults.global.defaultFontColor = '#858796';
+
+        // Pie Chart Example
+        var ctx = document.getElementById("myPieChart");
+        var myPieChart = new Chart(ctx, {
+            type: 'line',
+            data: {{numBlocks}},
+            options: options
+        });
+</script>
 
 
 {% endblock %}
