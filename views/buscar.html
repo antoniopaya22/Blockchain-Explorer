@@ -42,7 +42,7 @@
 <script src="js/sb-admin-2.min.js"></script>
 <script>
     $('#buscarBt').click( function() {
-        var url = '/getTransaction/'+$('#txid').text();
+        var url = '/getTransaction/'+$('#txid').value();
         $(location).attr('href', url);
     });
 </script>
