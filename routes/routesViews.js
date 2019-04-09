@@ -61,4 +61,15 @@ module.exports = function (app, redFabric, swig) {
             
         }));
     });
+
+    app.get("/seeTransaction/:id", function (req, res) {
+        redFabric.getTranstaction(req.params.id).then(function (transaction) {
+            res.send(swig.renderFile('views/trans.html', {
+                id:req.params.id,
+                transaction: transaction
+            }));
+        }).catch(err => {
+            res.status(500).send("Vaya por dios: " + err);
+        });
+    });
 };
