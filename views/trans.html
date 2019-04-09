@@ -21,8 +21,8 @@
                     </div>
                     <div class="card-body">
                         <p><b>Chaincode:</b>{{transaction.chaincode}}</p>
-                        <p><b>Creator:</b>{{transaction.creator}}</p>
-                        <p><b>Data:</b>{{transaction.data}}</p>
+                        <p><b>Creator:</b>{{transaction.creator.toString()}}</p>
+                        <p><b>Data:</b>{{transaction.data.toString()}}</p>
                     </div>
                 </div>
 
@@ -45,12 +45,6 @@
 
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
-<script>
-    $('#buscarBt').click( function() {
-        var url = '/seeTransaction/'+$('#txid').val();
-        $(location).attr('href', url);
-    });
-</script>
 
     
 {% endblock %}
