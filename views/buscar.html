@@ -14,12 +14,13 @@
                 <div class="page-header">
                     <h1 id="timeline">Buscar transacciones</h1>
                 </div>
-                <form>
+                <form method="get" id="form">
                     <div class="form-group">
                         <label for="txid">Transacction Id</label>
-                        <input type="text" class="form-control" id="txid"  placeholder="Introduce el id de la transaccion">
+                        <input type="text" class="form-control" id="txid"  onchange="document.getElementById('form').action = this.value;"
+                        placeholder="Introduce el id de la transaccion">
                     </div>
-                    <button type="submit" class="btn btn-primary" onclick="location.href = '/getTransaction/'+ document.getElementById('txid').value;">Buscar</button>
+                    <button type="submit" class="btn btn-primary">Buscar</button>
                 </form>
             </div>
         </div>
