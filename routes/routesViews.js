@@ -66,7 +66,9 @@ module.exports = function (app, redFabric, swig) {
         redFabric.getTranstaction(req.params.id).then(function (transaction) {
             res.send(swig.renderFile('views/trans.html', {
                 id:req.params.id,
-                transaction: transaction
+                transaction: transaction,
+                creator: JSON.stringify(transaction.creator),
+                data: JSON.stringify(transaction.data)
             }));
         }).catch(err => {
             res.status(500).send("Vaya por dios: " + err);

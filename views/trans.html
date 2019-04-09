@@ -12,17 +12,17 @@
 
             <div class="container">
                 <div class="page-header">
-                    <h1 id="timeline">{{id}}</h1>
+                    <h1 id="timeline">{{transaction.timestamp}}</h1>
                 </div>
 
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">{{transaction.timestamp}}</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">{{id}}</h6>
                     </div>
                     <div class="card-body">
                         <p><b>Chaincode:</b>{{transaction.chaincode}}</p>
-                        <p><b>Creator:</b>{{transaction.creator.toString()}}</p>
-                        <p><b>Data:</b>{{transaction.data.toString()}}</p>
+                        <p><b>Creator:</b>{{creator}}</p>
+                        <p><b>Data:</b>{{data}}</p>
                     </div>
                 </div>
 
