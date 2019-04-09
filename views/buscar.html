@@ -19,7 +19,7 @@
                         <label for="txid">Transacction Id</label>
                         <input type="text" class="form-control" id="txid" placeholder="Introduce el id de la transaccion">
                     </div>
-                    <button type="button" class="btn btn-primary">Buscar</button>
+                    <button id="buscarBt" type="button" class="btn btn-primary">Buscar</button>
                 </form>
             </div>
         </div>
@@ -41,7 +41,7 @@
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
 <script>
-    $('input[type=button]').click( function() {
+    $('#buscarBt').click( function() {
         var url = '/getTransaction/'+$('#txid').text();
         $(location).attr('href', url);
     });
