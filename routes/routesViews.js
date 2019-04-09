@@ -55,4 +55,10 @@ module.exports = function (app, redFabric, swig) {
             res.status(500).send("Vaya por dios: " + err);
         });
     });
+
+    app.get("/buscar", function (req, res) {
+        res.send(swig.renderFile('views/buscar.html', {
+            
+        }));
+    });
 };
