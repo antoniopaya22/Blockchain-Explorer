@@ -14,13 +14,12 @@
                 <div class="page-header">
                     <h1 id="timeline">Buscar transacciones</h1>
                 </div>
-                <form method="get" id="form">
+                <form>
                     <div class="form-group">
                         <label for="txid">Transacction Id</label>
-                        <input type="text" class="form-control" id="txid"  onchange="document.getElementById('form').action = '/getTransaction/'+this.value;"
-                        placeholder="Introduce el id de la transaccion">
+                        <input type="text" class="form-control" id="txid" placeholder="Introduce el id de la transaccion">
                     </div>
-                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    <button type="button" class="btn btn-primary">Buscar</button>
                 </form>
             </div>
         </div>
@@ -41,6 +40,12 @@
 
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
+<script>
+    $('input[type=button]').click( function() {
+        var url = '/getTransaction/'+$('#txid').text();
+        $(location).attr('href', url);
+    });
+</script>
 
     
 {% endblock %}
