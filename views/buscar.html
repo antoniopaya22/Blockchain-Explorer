@@ -17,7 +17,7 @@
                 <form method="get" id="form">
                     <div class="form-group">
                         <label for="txid">Transacction Id</label>
-                        <input type="text" class="form-control" id="txid"  onchange="document.getElementById('form').action = this.value;"
+                        <input type="text" class="form-control" id="txid"  onchange="document.getElementById('form').action = '/getTransaction/'+this.value;"
                         placeholder="Introduce el id de la transaccion">
                     </div>
                     <button type="submit" class="btn btn-primary">Buscar</button>
