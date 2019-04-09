@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block titulo %} Buscar transacciones - Blockchain Dashboard {% endblock %}
+
+{% block contenido_principal %}
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-lg-12" id="transactionListView">
+
+            <div class="container">
+                <div class="page-header">
+                    <h1 id="timeline">Buscar transacciones</h1>
+                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="txid">Transacction Id</label>
+                        <input type="text" class="form-control" id="txid"  placeholder="Introduce el id de la transaccion">
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick="location.href = '/allInfoBlock/'+ document.getElementById('txid').value;">Buscar</button>
+                </form>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+{% endblock %}
+{% block scripts %}
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap-notify.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
+
+    
+{% endblock %}
