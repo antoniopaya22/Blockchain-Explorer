@@ -146,10 +146,14 @@
 
         // Pie Chart Example
         var ctx = document.getElementById("myPieChart");
+        var datos = [];
+        {% for x in times %}
+          datos.push({{x}}.toString());
+        {% endfor %}
         var myPieChart = new Chart(ctx, {
             type: 'line',
             data: {
-              labels: [{{times.toString()}}],
+              labels: [datos],
               datasets: [{ 
                   data: [{{counts}}],
                   label: "Bloques",
