@@ -17,16 +17,14 @@ module.exports = function (app, redFabric, swig) {
                     }
                     if(!exist) charTimes.push({time:formattedTime,count:1});
                 });
-                times = [];
                 counts = [];
-                charTimes.forEach(x => times.push(x.time.toString().split("-")[2]));
                 charTimes.forEach(x => counts.push(parseInt(x.count)));
                 res.send(swig.renderFile('views/home.html', {
                     title: 'ArcelorMittal Blockchain Dashboard',
                     numBlocks: numBlocks.toString(),
                     peers: redFabric.getPeers(),
                     blocks: blocks,
-                    times: times,
+                    times: charTimes,
                     counts: counts,
                     asturias: blocks.filter(x => x.org === "asturiasMSP"),
                     brasil: blocks.filter(x => x.org === "brasilMSP"),
