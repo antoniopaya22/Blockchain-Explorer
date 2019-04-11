@@ -93,11 +93,12 @@
                 </button>
 
                 <!-- Topbar Search -->
-                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="/buscar" method="post">
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                 <div class="input-group" >
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2" name="consulta">
+                    <input type="text" id="txidHead" class="form-control bg-light border-0 small" placeholder="Buscar transacción por id..." 
+                        aria-label="Search" aria-describedby="basic-addon2" name="consulta">
                     <div class="input-group-append" >
-                    <button class="btn btn-primary bg-gradient-primary" type="submit" style="border:0px">
+                    <button id="buscarHead" class="btn btn-primary bg-gradient-primary" type="submit" style="border:0px">
                         <i class="fas fa-search fa-sm"></i>
                     </button>
                     </div>
@@ -170,6 +171,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+    
     {% endblock %}
 
 </body>
