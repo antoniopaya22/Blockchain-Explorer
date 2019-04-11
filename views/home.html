@@ -148,7 +148,7 @@
         var ctx = document.getElementById("myPieChart");
         var datos = [];
         {% for x in times %}
-          datos.push("{{x.toString()}}");
+          datos.push("{{x}}");
         {% endfor %}
         var myPieChart = new Chart(ctx, {
             type: 'line',
