@@ -1,2 +1,2 @@
-# Hyperledger-Fabric-Explorer
+# Blockchain-Explorer
 Hyperledger-Fabric-Explorer
