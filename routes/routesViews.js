@@ -67,7 +67,7 @@ module.exports = function (app, redFabric, swig) {
             res.send(swig.renderFile('views/trans.html', {
                 id:req.params.id,
                 transaction: transaction,
-                creator: JSON.stringify(transaction.creator),
+                creator: transaction.creator,
                 data: transaction.data,
                 isDelete: transaction.isDelete
             }));

@@ -21,7 +21,12 @@
                     </div>
                     <div class="card-body">
                         <p><b>Chaincode: </b>{{transaction.chaincode}}</p>
-                        <p><b>Creator:</b>{{creator}}</p>
+                        <p><b>Creator:</b></p>
+                        <ul>
+                            <li><b>Mspid: </b>{{creator.mspid}}</li>
+                            <li><b>Firma: </b>{{creator.signature}}</li>
+                            <li><b>Nodo: </b>{{creator.name}}</li>
+                        </ul>
                         <p><b>Data:</b></p>
                         <ul>
                             <li><b>Id: </b>{{data.id}}</li>
