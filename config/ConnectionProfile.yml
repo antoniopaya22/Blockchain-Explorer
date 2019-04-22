@@ -11,19 +11,19 @@ client:
 channels:
   datoschannel:
     orderers:
-      - orderer.arcelormittal.com
+      - orderer.antonio.com
     peers:
-      peer0.asturias.arcelormittal.com:
+      peer0.asturias.antonio.com:
         endorsingPeer: true
         chaincodeQuery: true
         ledgerQuery: true
         eventSource: true
-      peer0.brasil.arcelormittal.com:
+      peer0.brasil.antonio.com:
         endorsingPeer: true
         chaincodeQuery: true
         ledgerQuery: true
         eventSource: true
-      peer0.chicago.arcelormittal.com:
+      peer0.chicago.antonio.com:
         endorsingPeer: true
         chaincodeQuery: true
         ledgerQuery: true
@@ -33,30 +33,30 @@ organizations:
   asturias:
     mspid: asturiasMSP
     peers:
-      - peer0.asturias.arcelormittal.com
+      - peer0.asturias.antonio.com
     certificateAuthorities:
-      - ca.asturias.arcelormittal.com
+      - ca.asturias.antonio.com
   brasil:
     mspid: brasilMSP
     peers:
-      - peer0.brasil.arcelormittal.com
+      - peer0.brasil.antonio.com
     certificateAuthorities:
-      - ca.brasil.arcelormittal.com
+      - ca.brasil.antonio.com
   chicago:
     mspid: chicagoMSP
     peers:
-      - peer0.chicago.arcelormittal.com
+      - peer0.chicago.antonio.com
     certificateAuthorities:
-      - ca.chicago.arcelormittal.com
+      - ca.chicago.antonio.com
 
 peers:
-  peer0.asturias.arcelormittal.com:
+  peer0.asturias.antonio.com:
     url: grpc://localhost:7051
-  peer0.brasil.arcelormittal.com:
+  peer0.brasil.antonio.com:
     url: grpc://localhost:7051
-  peer0.chicago.arcelormittal.com:
+  peer0.chicago.antonio.com:
     url: grpc://localhost:7051
 
 orderers:
-  orderer.arcelormittal.com:
+  orderer.antonio.com:
     url: grpc://192.168.0.3:7050

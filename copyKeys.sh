@@ -33,7 +33,7 @@ function copyPeerOrderer(){
 
     cd $DIR
 
-    cp $BLOCKDIR/crypto-config/peerOrganizations/asturias.arcelormittal.com/peers/peer0.asturias.arcelormittal.com/msp/tlscacerts/tlsca.asturias.arcelormittal.com-cert.pem $DIR
+    cp $BLOCKDIR/crypto-config/peerOrganizations/asturias.antonio.com/peers/peer0.asturias.antonio.com/msp/tlscacerts/tlsca.asturias.antonio.com-cert.pem $DIR
 
     echo 
     echo "---------- Copiando orderer keys--------------"
@@ -41,7 +41,7 @@ function copyPeerOrderer(){
 
     cd $DIR
 
-    cp $BLOCKDIR/crypto-config/ordererOrganizations/arcelormittal.com/msp/tlscacerts/tlsca.arcelormittal.com-cert.pem $DIR
+    cp $BLOCKDIR/crypto-config/ordererOrganizations/antonio.com/msp/tlscacerts/tlsca.antonio.com-cert.pem $DIR
 }
 
 copyHfc

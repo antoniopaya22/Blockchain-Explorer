@@ -1,5 +1,8 @@
 'use strict';
 var fabricClient = require('../config/FabricClient.js');
+var Block = require('../models/block.js');
+var Transaction = require('../models/transaction.js');
+var Peer = require('../models/peer.js');
 
 class RedFabric {
 
@@ -42,15 +45,15 @@ class RedFabric {
         var peer = this.client.getPeersForOrg()[0];
         return channel.queryInfo(peer).then(function (blockchainInfo) {
             return channel.queryBlockByHash(blockchainInfo.currentBlockHash).then(function (block) {
-                return  {
-                    "number":block.header.number,
-                    "prevHash":block.header.previous_hash,
-                    "dataHash":block.header.data_hash,
-                    "channel":block.data.data[0].payload.header.channel_header.channel_id,
-                    "timestamp":block.data.data[0].payload.header.channel_header.timestamp,
-                    "txid":block.data.data[0].payload.header.channel_header.tx_id,
-                    "org":block.data.data[0].payload.header.signature_header.creator.Mspid
-                }
+                return new Block(
+                    block.header.number,
+                    block.header.previous_hash,
+                    block.header.data_hash,
+                    block.data.data[0].payload.header.channel_header.channel_id,
+                    block.data.data[0].payload.header.channel_header.timestamp,
+                    block.data.data[0].payload.header.channel_header.tx_id,
+                    block.data.data[0].payload.header.signature_header.creator.Mspid
+                );
             });
         });
     }
@@ -58,15 +61,15 @@ class RedFabric {
     getBlockByNum(num){ 
         var channel = this.client.getChannel();
         return channel.queryBlock(num).then(function (block){
-            return  {
-                "number":block.header.number,
-                "prevHash":block.header.previous_hash,
-                "dataHash":block.header.data_hash,
-                "channel":block.data.data[0].payload.header.channel_header.channel_id,
-                "timestamp":block.data.data[0].payload.header.channel_header.timestamp,
-                "txid":block.data.data[0].payload.header.channel_header.tx_id,
-                "org":block.data.data[0].payload.header.signature_header.creator.Mspid
-            }
+            return new Block(
+                block.header.number,
+                block.header.previous_hash,
+                block.header.data_hash,
+                block.data.data[0].payload.header.channel_header.channel_id,
+                block.data.data[0].payload.header.channel_header.timestamp,
+                block.data.data[0].payload.header.channel_header.tx_id,
+                block.data.data[0].payload.header.signature_header.creator.Mspid
+            );
         });
     }
 
@@ -87,15 +90,15 @@ class RedFabric {
     getTranstaction(txId) {
         var channel = this.client.getChannel();
         return channel.queryTransaction(txId).then(function (transaction){
-            return  {
-                "channel":transaction.transactionEnvelope.payload.header.channel_header.channel_id,
-                "timestamp":transaction.transactionEnvelope.payload.header.channel_header.timestamp,
-                "creator":transaction.transactionEnvelope.payload.header.signature_header.creator,
-                "chaincode":transaction.transactionEnvelope.payload.data.actions[0].payload.action.proposal_response_payload.
-                extension.chaincode_id.name,
-                "data":transaction.transactionEnvelope.payload.data.actions[0].payload.action.proposal_response_payload.
-                extension.results.ns_rwset[1].rwset.writes
-            };
+            return new Transaction(
+                transaction.transactionEnvelope.payload.header.channel_header.channel_id,
+                transaction.transactionEnvelope.payload.header.channel_header.timestamp,
+                transaction.transactionEnvelope.payload.header.signature_header.creator,
+                transaction.transactionEnvelope.payload.data.actions[0].payload.action.proposal_response_payload.
+                    extension.chaincode_id.name,
+                transaction.transactionEnvelope.payload.data.actions[0].payload.action.proposal_response_payload.
+                    extension.results.ns_rwset[1].rwset.writes
+            );
         });
     }
 
@@ -105,10 +108,11 @@ class RedFabric {
         var nodos = [];
         for (let i = 0; i < peers.length; i++) {
             const peer = peers[i];
-            nodos.push({
-                "mspid": peer.getMspid(),
-                "name": peer.getName() 
-            });
+            nodos.push(new Peer(
+                peer.getMspid(),
+                peer.getClientCertHash(),
+                peer.getName() 
+            ));
         }
         return nodos;
     }
