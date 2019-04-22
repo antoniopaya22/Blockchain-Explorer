@@ -15,7 +15,7 @@ module.exports = class Transaction{
         this.creator = new Peer(creator.Mspid,creator.IdBytes,data.value.node);
         this.chaincode = chaincode;
         this.data = new Data(
-            data.key,
+            data.Key,
             data.value.temperature,
             data.value.hour,
             data.value.gps,
