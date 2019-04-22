@@ -12,15 +12,15 @@ module.exports = class Transaction{
     ) {
         this.channel = channel;
         this.timestamp = timestamp;
-        this.creator = new Peer(creator.Mspid,creator.IdBytes,data.value.node);
+        this.creator = new Peer(creator.Mspid,creator.IdBytes,data[0].value.node);
         this.chaincode = chaincode;
         this.data = new Data(
-            data.Key,
-            data.value.temperature,
-            data.value.hour,
-            data.value.gps,
-            data.value.device,
-            data.value.node
+            data[0].Key,
+            data[0].value.temperature,
+            data[0].value.hour,
+            data[0].value.gps,
+            data[0].value.device,
+            data[0].value.node
             );
         this.isDelete = Boolean.valueOf(data.is_delete);
     }
