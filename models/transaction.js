@@ -22,6 +22,6 @@ module.exports = class Transaction{
             JSON.parse(data[0].value).device,
             JSON.parse(data[0].value).node
             );
-        this.isDelete = Boolean.valueOf(data[0].is_delete);
+        this.isDelete = data[0].is_delete;
     }
 }
