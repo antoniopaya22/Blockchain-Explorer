@@ -110,7 +110,7 @@ class RedFabric {
             const peer = peers[i];
             nodos.push(new Peer(
                 peer.getMspid(),
-                peer.getClientCertHash(),
+                "",
                 peer.getName() 
             ));
         }
