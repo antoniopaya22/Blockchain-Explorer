@@ -68,7 +68,7 @@ module.exports = function (app, redFabric, swig) {
                 id:req.params.id,
                 transaction: transaction,
                 creator: JSON.stringify(transaction.creator),
-                data: JSON.stringify(transaction.data),
+                data: transaction.data,
                 isDelete: transaction.isDelete
             }));
         }).catch(err => {
