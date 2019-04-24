@@ -13,7 +13,7 @@ module.exports = function (app, redFabric) {
 
 
     /**
-     * GET LastBlock
+     * GET Block by num
      */
     app.get("/get/:num", function (req, res) {
         redFabric.getBlockByNum(parseInt(req.params.num)).then(function (block) {

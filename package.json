@@ -2,9 +2,10 @@
   "name": "hyperledger-fabric-explorer",
   "version": "0.0.0",
   "private": true,
-  "author": "Antonio Pay� Gonz�lez",
+  "author": "Antonio Payá González",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -16,5 +17,9 @@
     "fabric-client": "^1.4.0",
     "grpc": "^1.6.0",
     "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1"
   }
 }
