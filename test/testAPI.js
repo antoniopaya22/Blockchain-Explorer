@@ -43,16 +43,6 @@ mocha.describe('Prueba las rutas de bloques: ',function () {
             });
     }); 
 
-    it('Get genesis block', (done) => {
-        chai.request(url)
-            .get('/getGenesis')
-            .end( function(err,res){
-                expect(res).to.have.status(200);
-                res.body.should.be.a('object');
-                done();
-            });
-    }); 
-
     it('Get allBlocks', (done) => {
         chai.request(url)
             .get('/allBlocks')
