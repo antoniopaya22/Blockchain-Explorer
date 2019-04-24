@@ -49,13 +49,6 @@ mocha.describe('Prueba las rutas de bloques: ',function () {
             .end( function(err,res){
                 expect(res).to.have.status(200);
                 res.body.should.be.a('object');
-                res.body.should.have.property('number');
-                res.body.should.have.property('prevHash');
-                res.body.should.have.property('dataHash');
-                res.body.should.have.property('channel');
-                res.body.should.have.property('timestamp');
-                res.body.should.have.property('txid');
-                res.body.should.have.property('org');
                 done();
             });
     }); 
