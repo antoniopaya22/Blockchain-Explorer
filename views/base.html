@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
 
 </head>
 
@@ -28,30 +28,35 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/home">
-            <div class="sidebar-brand-icon">
-                <img src="/logo.png" alt="logo" style="width:40px;height:40px;">
-            </div>
-            <div class="sidebar-brand-text mx-3">HF Dashboard</div>
-            </a>
+            <li>
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/home">
+                <div class="sidebar-brand-icon">
+                    <img src="/logo.png" alt="logo" style="width:40px;height:40px;">
+                </div>
+                <div class="sidebar-brand-text mx-3">HF Dashboard</div>
+                </a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+            </li>
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
             <a class="nav-link" href="/home">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider">
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-            Transacciones
-            </div>
+        
+            <li>
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                Transacciones
+                </div>
+            </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
 
@@ -67,14 +72,15 @@
                 <span>Buscar transacciones</span></a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            <li>
+                <!-- Divider -->
+                <hr class="sidebar-divider d-none d-md-block">
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
+            </li>
         </ul>
         <!-- End of Sidebar -->
 
@@ -170,7 +176,7 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="js/main.min.js"></script>
     
     {% endblock %}
 
