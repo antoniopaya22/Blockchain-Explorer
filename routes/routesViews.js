@@ -45,7 +45,7 @@ module.exports = function (app, redFabric, swig) {
             var pages = numBlocks%5 == 0 ? parseInt(numBlocks/5) : ((parseInt(numBlocks/5))+1);
             var p = req.query.page;
             if (p === undefined) p = 1;
-            var page = numBlocks - ((p-1)*5);
+            var page = (numBlocks-1) - ((p-1)*5);
             redFabric.getBlocksBt(page).then(function (blocks) {
                 res.send(swig.renderFile('views/bloques.html', {
                     numBlocks: numBlocks.toString(),
