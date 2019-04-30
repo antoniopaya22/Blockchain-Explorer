@@ -50,7 +50,7 @@ module.exports = function (app, redFabric, swig) {
                 res.send(swig.renderFile('views/bloques.html', {
                     numBlocks: numBlocks.toString(),
                     peers: redFabric.getPeers(),
-                    blocks: blocks.reverse(),
+                    blocks: blocks,
                     pages: pages
                 }));
             }).catch(err => {
