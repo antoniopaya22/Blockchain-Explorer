@@ -51,7 +51,7 @@ module.exports = function (app, redFabric, swig) {
                     numBlocks: numBlocks.toString(),
                     peers: redFabric.getPeers(),
                     blocks: blocks,
-                    pages: pages
+                    pages: new Array(pages)
                 }));
             }).catch(err => {
                 res.status(500).send("Vaya por dios: " + err);

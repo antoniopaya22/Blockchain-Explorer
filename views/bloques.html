@@ -69,7 +69,7 @@
 
                 <ul class="pagination">
                     {% for key, val in pages %}
-                    <li class="page-item"><a class="page-link" href="/bloques?page={{val}}">{{val}}</a></li>
+                    <li class="page-item"><a class="page-link" href="/bloques?page={{key+1}}">{{key+1}}</a></li>
                     {% endfor %}
                 </ul>
             </div>
