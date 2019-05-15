@@ -6,10 +6,10 @@ let should = chai.should();
 chai.use(chaiHttp);
 const url= 'http://localhost:8090';
 
-mocha.describe('Prueba las rutas de bloques: ',function () {
+mocha.describe('Buscar bloques tests: ',function () {
     this.timeout(5000);
 
-    it('Get last block', (done) => {
+    it('Buscar el ultimo bloque', (done) => {
         chai.request(url)
             .get('/lastblock')
             .end( function(err,res){
@@ -26,7 +26,7 @@ mocha.describe('Prueba las rutas de bloques: ',function () {
             });
     });  
 
-    it('Get block by num', (done) => {
+    it('Buscar bloque existente por su numero', (done) => {
         chai.request(url)
             .get('/get/0')
             .end( function(err,res){
@@ -43,7 +43,16 @@ mocha.describe('Prueba las rutas de bloques: ',function () {
             });
     }); 
 
-    it('Get allBlocks', (done) => {
+    it('Buscar bloque no existente por su numero', (done) => {
+        chai.request(url)
+            .get('/get/0121212121212121212112121212')
+            .end( function(err,res){
+                expect(res).to.have.status(404);
+                done();
+            });
+    }); 
+
+    it('Buscar todos los bloques', (done) => {
         chai.request(url)
             .get('/allBlocks')
             .end( function(err,res){
@@ -53,7 +62,7 @@ mocha.describe('Prueba las rutas de bloques: ',function () {
             });
     }); 
 
-    it('Get all info block', (done) => {
+    it('Buscar toda la informacion de un bloque existente dado su numero', (done) => {
         chai.request(url)
             .get('/allInfoBlock/0')
             .end( function(err,res){
@@ -62,12 +71,17 @@ mocha.describe('Prueba las rutas de bloques: ',function () {
                 done();
             });
     }); 
-});
 
-mocha.describe('Prueba las rutas de orgs: ',function () {
-    this.timeout(5000);
+    it('Buscar toda la informacion de un bloque no existente dado su numero', (done) => {
+        chai.request(url)
+            .get('/allInfoBlock/0121212121212121212112121212')
+            .end( function(err,res){
+                expect(res).to.have.status(404);
+                done();
+            });
+    }); 
 
-    it('Get peers', (done) => {
+    it('Buscar todos los nodos', (done) => {
         chai.request(url)
             .get('/getpeers')
             .end( function(err,res){
