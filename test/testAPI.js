@@ -47,7 +47,7 @@ mocha.describe('Buscar bloques tests: ',function () {
         chai.request(url)
             .get('/get/0121212121212121212112121212')
             .end( function(err,res){
-                expect(res).to.have.status(404);
+                expect(res).to.have.status(500);
                 done();
             });
     }); 
@@ -76,7 +76,7 @@ mocha.describe('Buscar bloques tests: ',function () {
         chai.request(url)
             .get('/allInfoBlock/0121212121212121212112121212')
             .end( function(err,res){
-                expect(res).to.have.status(404);
+                expect(res).to.have.status(500);
                 done();
             });
     }); 
