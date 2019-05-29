@@ -67,15 +67,19 @@
                     {% endfor %}
                 </ul>
 
-                <ul class="pagination">
-                    {% for key, val in pages %}
-                    <li class="page-item"><a class="page-link" href="/bloques?page={{key+1}}">{{key+1}}</a></li>
-                    {% endfor %}
-                </ul>
             </div>
             
         </div>
         <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <ul class="pagination">
+                {% for key, val in pages %}
+                <li class="page-item"><a class="page-link" href="/bloques?page={{key+1}}">{{key+1}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 
 </div>

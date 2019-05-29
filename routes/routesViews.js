@@ -26,8 +26,8 @@ module.exports = function (app, redFabric, swig) {
                     numBlocks: numBlocks.toString(),
                     peers: redFabric.getPeers(),
                     blocks: blocks,
-                    times: times,
-                    counts: counts,
+                    times: times.slice(Math.max(arr.length - 5, 1)),
+                    counts: counts.slice(Math.max(arr.length - 5, 1)),
                     asturias: blocks.filter(x => x.org === "asturiasMSP"),
                     brasil: blocks.filter(x => x.org === "brasilMSP"),
                     chicago: blocks.filter(x => x.org === "chicagoMSP")
