@@ -21,13 +21,17 @@ module.exports = function (app, redFabric, swig) {
                 counts = [];
                 charTimes.forEach(x => times.push(x.time.toString()));
                 charTimes.forEach(x => counts.push(parseInt(x.count)));
+                if(times.length > 5){
+                    times = times.slice(-5);
+                    counts = counts.slice(-5);
+                }
                 res.send(swig.renderFile('views/home.html', {
                     title: 'Antonio Blockchain Dashboard',
                     numBlocks: numBlocks.toString(),
                     peers: redFabric.getPeers(),
                     blocks: blocks,
-                    times: times.slice(Math.max(arr.length - 5, 1)),
-                    counts: counts.slice(Math.max(arr.length - 5, 1)),
+                    times: times,
+                    counts: counts,
                     asturias: blocks.filter(x => x.org === "asturiasMSP"),
                     brasil: blocks.filter(x => x.org === "brasilMSP"),
                     chicago: blocks.filter(x => x.org === "chicagoMSP")
