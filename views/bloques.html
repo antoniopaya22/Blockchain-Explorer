@@ -74,9 +74,9 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <ul class="pagination">
+            <ul class="pagination list-group">
                 {% for key, val in pages %}
-                <li class="page-item"><a class="page-link" href="/bloques?page={{key+1}}">{{key+1}}</a></li>
+                <li class="page-item list-group-item"><a class="page-link" href="/bloques?page={{key+1}}">{{key+1}}</a></li>
                 {% endfor %}
             </ul>
         </div>
