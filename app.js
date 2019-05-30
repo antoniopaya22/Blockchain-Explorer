@@ -40,9 +40,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //==========RUTAS================
-require("./routes/routesViews.js")(app, redFabric, swig);
+require("./routes/routesViews.js")(app, redFabric, swig, createError);
 require("./routes/routesBlocks.js")(app, redFabric);
-require("./routes/routesTransactions.js")(app, redFabric);
+require("./routes/routesTransactions.js")(app, redFabric, createError);
 require("./routes/routesOrgs.js")(app, redFabric);
 app.get('/', function (req, res) {
   res.redirect("/home");

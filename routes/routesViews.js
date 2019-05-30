@@ -1,4 +1,4 @@
-module.exports = function (app, redFabric, swig) {
+module.exports = function (app, redFabric, swig, createError) {
 
     app.get("/home", function (req, res) {
         redFabric.getNumBlocks().then(function (numBlocks) {
@@ -37,10 +37,10 @@ module.exports = function (app, redFabric, swig) {
                     chicago: blocks.filter(x => x.org === "chicagoMSP")
                 }));
             }).catch(err => {
-                res.status(500).send("Vaya por dios: " + err);
+                next(createError(500));
             });
         }).catch(err => {
-            res.status(500).send("Vaya por dios: " + err);
+            next(createError(500));
         });
     });
 
@@ -58,10 +58,10 @@ module.exports = function (app, redFabric, swig) {
                     pages: new Array(pages)
                 }));
             }).catch(err => {
-                res.status(500).send("Vaya por dios: " + err);
+                next(createError(500));
             });
         }).catch(err => {
-            res.status(500).send("Vaya por dios: " + err);
+            next(createError(500));
         });
     });
 
@@ -81,7 +81,7 @@ module.exports = function (app, redFabric, swig) {
                 isDelete: transaction.isDelete
             }));
         }).catch(err => {
-            res.status(500).send("Vaya por dios: " + err);
+            next(createError(500));
         });
     });
 };

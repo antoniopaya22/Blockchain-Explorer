@@ -1,4 +1,4 @@
-module.exports = function (app, redFabric) {
+module.exports = function (app, redFabric, createError) {
 
     /**
      * GET Transaction
@@ -7,7 +7,7 @@ module.exports = function (app, redFabric) {
         redFabric.getTranstaction(req.params.id).then(function (transaction) {
             res.send(transaction);
         }).catch(err => {
-            res.status(500).send("Vaya por dios: " + err);
+            next(createError(500));
         });
     });
 
