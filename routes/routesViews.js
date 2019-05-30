@@ -37,6 +37,7 @@ module.exports = function (app, redFabric, swig) {
                     chicago: blocks.filter(x => x.org === "chicagoMSP")
                 }));
             }).catch(err => {
+                var message = err.message;
                 var respuesta = swig.renderFile('views/error.html', {
                     message: message,
                     error: err,
@@ -44,6 +45,7 @@ module.exports = function (app, redFabric, swig) {
                   res.send(respuesta);
             });
         }).catch(err => {
+            var message = err.message;
             var respuesta = swig.renderFile('views/error.html', {
                 message: message,
                 error: err,
@@ -66,6 +68,7 @@ module.exports = function (app, redFabric, swig) {
                     pages: new Array(pages)
                 }));
             }).catch(err => {
+                var message = err.message;
                 var respuesta = swig.renderFile('views/error.html', {
                     message: message,
                     error: err,
@@ -73,6 +76,7 @@ module.exports = function (app, redFabric, swig) {
                   res.send(respuesta);
             });
         }).catch(err => {
+            var message = err.message;
             var respuesta = swig.renderFile('views/error.html', {
                 message: message,
                 error: err,
@@ -97,6 +101,7 @@ module.exports = function (app, redFabric, swig) {
                 isDelete: transaction.isDelete
             }));
         }).catch(err => {
+            var message = err.message;
             var respuesta = swig.renderFile('views/error.html', {
                 message: message,
                 error: err,
