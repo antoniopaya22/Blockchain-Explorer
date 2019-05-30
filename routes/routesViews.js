@@ -1,4 +1,4 @@
-module.exports = function (app, redFabric, swig, createError) {
+module.exports = function (app, redFabric, swig) {
 
     app.get("/home", function (req, res) {
         redFabric.getNumBlocks().then(function (numBlocks) {
@@ -37,10 +37,18 @@ module.exports = function (app, redFabric, swig, createError) {
                     chicago: blocks.filter(x => x.org === "chicagoMSP")
                 }));
             }).catch(err => {
-                next(createError(500));
+                var respuesta = swig.renderFile('views/error.html', {
+                    message: message,
+                    error: err,
+                  });
+                  res.send(respuesta);
             });
         }).catch(err => {
-            next(createError(500));
+            var respuesta = swig.renderFile('views/error.html', {
+                message: message,
+                error: err,
+              });
+              res.send(respuesta);
         });
     });
 
@@ -58,10 +66,18 @@ module.exports = function (app, redFabric, swig, createError) {
                     pages: new Array(pages)
                 }));
             }).catch(err => {
-                next(createError(500));
+                var respuesta = swig.renderFile('views/error.html', {
+                    message: message,
+                    error: err,
+                  });
+                  res.send(respuesta);
             });
         }).catch(err => {
-            next(createError(500));
+            var respuesta = swig.renderFile('views/error.html', {
+                message: message,
+                error: err,
+              });
+              res.send(respuesta);
         });
     });
 
@@ -81,7 +97,11 @@ module.exports = function (app, redFabric, swig, createError) {
                 isDelete: transaction.isDelete
             }));
         }).catch(err => {
-            next(createError(500));
+            var respuesta = swig.renderFile('views/error.html', {
+                message: message,
+                error: err,
+              });
+              res.send(respuesta);
         });
     });
 };
