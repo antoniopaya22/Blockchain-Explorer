@@ -45,24 +45,24 @@ require("./routes/routesBlocks.js")(app, redFabric);
 require("./routes/routesTransactions.js")(app, redFabric, createError);
 require("./routes/routesOrgs.js")(app, redFabric);
 app.get('/', function (req, res) {
-  res.redirect("/home");
+    res.redirect("/home");
 });
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+app.use(function (req, res, next) {
+    next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
-  var message = err.message;
-  var error = req.app.get('env') === 'development' ? err : {};
-  res.status(err.status || 500);
-  var respuesta = swig.renderFile('views/error.html', {
-    message: message,
-    error: error,
-  });
-  res.send(respuesta);
+app.use(function (err, req, res, next) {
+    var message = err.message;
+    var error = req.app.get('env') === 'development' ? err : {};
+    res.status(err.status || 500);
+    var respuesta = swig.renderFile('views/error.html', {
+        message: message,
+        error: error,
+    });
+    res.send(respuesta);
 });
 
 
